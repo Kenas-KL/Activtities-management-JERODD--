@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Membre : {{ request.user.username }}
+{% endblock %}
+
+{% block content %}
+
+    <div class="cntr d-col pd-10p gp-10p mg-top-100">
+        {% if request.user.thumbnail %}
+        <div class="portrait">
+            <img src="{{ request.user.thumbnail.url }}" class="" >
+        </div>
+        {% endif %}
+        <h3 class="t-title">Membre: {{ request.user.username }}</h3>
+        <h4>Information communautaire</h4>
+        <ul>
+            <li>Commission: {{ request.user.commission }}</li>
+            <li>Fonction: {{ request.user.fonction }}</li>
+        </ul>
+    </div>
+    <div class="">
+        <a href="{% url 'activity:members_commission' request.user.commission %}">Membres de la commission {{ request.user.comission }}</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="activities-section cntr d-col gp-10p">
+
+    <div class="container cntr d-col mg-top-100 gp-10p">
+
+        <header>
+            <h1 class="t-title">Activités</h1>
+        </header>
+        {% if request.user.in_community %}
+        <select id="activitySelect">
+            <option value="prevues">Activités prévues</option>
+            <option value="realisees">Activités réalisées</option>
+        </select>
+        {% endif %}
+
+        <div id="realisees" class="activities">
+        {% for activity in activities %}
+        {% if activity.done %}
+            <div class="card">
+                <img src="{{ activity.thumbnail.url }}" alt="Activité 1">
+                <div class="card-content">
+                    <h3>{{ activity.title }}</h3>
+                    <div class="meta">📅 {{ activity.begin }} 🕒 </div>
+                    <div class="description">
+                        {{ activity.description }}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        {% endfor %}
+        </div>
+
+
+        <div id="prevues" class="activities" style="display:none;">
+            {% for activity in activities %}
+        {% if not activity.done %}
+            <div class="card">
+                <img src="{{ activity.thumbnail.url }}" alt="Activité 3">
+                <div class="card-content">
+                    <h3>{{ activity.title }}</h3>
+                    <div class="meta">📅 {{ activity.begin }} 🕒</div>
+                    <div class="description">
+                        {{ activity.description }}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        {% endfor %}
+        </div>
+
+    </div>
+</div>
+<script>
+    document.getElementById("activitySelect").addEventListener("change", function() {
+        let value = this.value;
+        document.getElementById("prevues").style.display = value === "prevues" ? "flex" : "none";
+        document.getElementById("realisees").style.display = value === "realisees" ? "flex" : "none";
+    });
+</script>
+{% endblock %}

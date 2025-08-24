@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="gp-10p mg-top-100">
+        <h2 class="t-title">Membres et leurs commissions</h2>
+        <div class="scroll-y pd-10p cntr d-col gp-10p">
+            {% for member in members %}
+                {% if member.in_community %}
+                    <div class="cntr shdw w-100 pd-10p rds-10p d-col gp-10p">
+                        {% if member.thumbnail %}
+                        <div class="portrait">
+                            <img src="{{ member.thumbnail.url }}" class="" >
+                        </div>
+                        <small>portrait</small>
+                        {% endif %}
+                        <div class="title-name">{{ member.username }}</div>
+                        <div class="">
+                            <ul>
+                                <li>Commission: {{ member.commission }}</li>
+                                <li>Fonction: {{ member.fonction }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+    </div>
+
+{% endblock %}

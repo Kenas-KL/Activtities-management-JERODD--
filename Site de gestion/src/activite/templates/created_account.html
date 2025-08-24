@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Acceuil
+{% endblock %}
+
+{% block content %}
+    <div class="content cntr d-col gp-10p mg-top-100 ">
+        <p>
+            Merci cher partenaire {{ request.user.username }} d'avoir crée votre compte de la communauté JERODD Tanganyika; veuillez contacter l'une des adresses suivantes pour l'adhesion dans la communauté.
+        </p>
+        <div class="cntr d-col">
+            <ul>
+                <li>Téléphone : +243 820 873 793</li>
+                <li>Mail: matishomathy06@gmail.com</li>
+                <li>Facebook: MATISHO MUSINGIBANDU</li>
+            </ul>
+        </div>
+    </div>
+ {% endblock %}
+

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Activité: {{activity.title}}{% endblock %}
+
+{% block content %}
+
+  <div class="detail cntr d-col">
+    <div class="title cntr d-col"><h2 class="t-title">Activité: {{ activity.title }} {% if activity.done %} Terminée{% endif %}</h2>
+     {% if activity.thumbnail %}
+        <img src="{{ activity.thumbnail.url}}" alt="" width="500" height="200">
+        <small>image</small>
+        {% endif %}
+        <div class="description">
+       <p>{{ activity.description}} </p>
+       <ul>
+         <li>Début de l'activité: {{ activity.begin }} </li>
+         <li>Date finale: {{ activity.end }}</li>
+       </ul>
+     </div>
+      {% if activity.done %}
+        {% if members %}
+         <div class="summary d-col cntr">
+             <h3>Resumé en rapport de l'activité</h3>
+             <div class="text-summary">
+                 <p class="justify-text">{{ activity.rapport}}</p>
+              </div>
+              <h3>Membres présent lors de l'activité</h3>
+              <div class="list">
+                  <ul>
+
+                     {% for member in members %}
+                     <li>{{ member.username }} | {{ member.fonction }} | commission: {{ member.commission}}</li>
+                     {% endfor %}
+
+                  </ul>
+              </div>
+             </div>
+            {% else %}
+            <small>Aucun membre</small>
+          {% endif %}
+         {% endif %}
+    </div>
+  </div>
+{% endblock %}

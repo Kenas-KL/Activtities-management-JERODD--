@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Acceuil
+{% endblock %}
+
+{% block content %}
+    <div class="content cntr d-col gp-10p mg-top-100">
+        <img src="{% static 'img/pres.png' %}" alt="" class="">
+        <h2>Activités JERODD</h2>
+        <div class="presentation">
+            <p>Bienvenue dans notre site JERODD </p>
+        </div>
+        <small>Un espace dédié pour chaque membre et un moteur pour toutes nos initiatives</small>
+        <div class="pd-5p">
+            <a href="{% url 'activity:activites' %}" class="btn pd-10p rds-10p">Activités</a>
+        </div>
+    </div>
+ {% endblock %}
+
+
+
+

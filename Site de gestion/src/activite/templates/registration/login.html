@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+</head>
+<body CLASS="h-100vh">
+    <div class="main  login cntr">
+        <form action="" method="post" class="cntr d-col gp-10p f">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <hr>
+            <div class="cntr gp-10p">
+                <button type="submit" class="btn pd-10p rds-10p">Se conneceter</button>
+                <a href="{% url 'activity:signup' %}">S'inscrire</a>
+            </div>
+            <small><a href="{% url 'activity:home' %}">Accueil</a></small>
+        </form>
+    </div>
+    <small>JERROD | PNUD</small>
+</body>
+
+
+</html>

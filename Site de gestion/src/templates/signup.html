@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>S'inscrire</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+
+<div class="main-content cntr d-col gp-10p h-100vh">
+    <form action="" method="post" class="cntr d-col pd-10p gp-10p">
+        {% csrf_token %}
+        <label for="name">Nom</label>
+        <input type="text" name="username" id="" required>
+        <label for="password">Mot-de-passe</label>
+        <input type="password" name="password" required>
+        <label for="password2">Confirmation</label>
+        {% if error %}
+        <small style="color : red" >Les deux mots de passse ne correspondent pas</small>
+        {% endif %}
+        <input type="password" name="password2" required>
+        <hr>
+        <div class="cntr gp-10p">
+
+            <button type="submit" class="btn d-col pd-10p rds-10p">S'inscrire</button>
+            <a href="{% url 'activity:login' %}">Se connecter</a>
+        </div>
+        <small><a href="{% url 'activity:home' %}">Accueil</a></small>
+
+    </form>
+
+</div>
+
+</body>
+</html>

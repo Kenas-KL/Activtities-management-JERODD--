@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<p>voulez-vous quitter la communauté?</p>
+<div>
+  <a href="{% url 'activity:out' %}">Sortie immediate</a>
+  <a href="{% url 'activity:reason' %}">Sortie par analyse d'administrateur</a>
+  <a href="{% url 'activity:home' %}">Annuler</a>
+</div>
+{% endblock %}
