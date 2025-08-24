@@ -10,3 +10,4 @@ sqlparse==0.5.3
 tornado==6.4.2
 tzdata==2024.2
 whitenoise==6.9.0
+gunicorn
